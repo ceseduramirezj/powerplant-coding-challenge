@@ -1,0 +1,27 @@
+Notes:
+
+1.- load is the amount of energy needed in MWh units
+2.- beforehand we know how much the cost € is for per MWh unit
+3.- we need a merit-order which defines which powerplant is used and which not
+4.- efficiency defines how much units of fuel are needed for one MWh energy unit, eg: efficiency = %50 | gas(euro/MWh) = 6 | therefore 1 unit MWh = 12 euros
+5.- wind(%): percentage of wind. Example: if there is on average 25% wind during an hour, a wind-turbine with a Pmax of 4 MW will generate 1MWh of energy.
+6.- pmax: the maximum amount of power the powerplant can generate.
+7.- pmin: the minimum amount of power the powerplant generates when switched on.
+
+Application flow: Objective is to produce the load demand with the cheapest cost
+
+1.- Map data into models: PowerPlant, Fuels, ProductionPlan
+
+2.- Calculate for each PowerPlant the cost in € for each MWh
+
+3.- Start covering load demand in order by price ascending (if not enough use next powerplant)
+
+4.- Response has to show by each powerplant how much it produced
+
+Framework: Will make use of FastAPI
+
+a. /productionplan endpoint which receives payload<\num>.json and responds which response.json
+b. generate swagger
+c. containerize application  
+
+Application architecture: Hexagonal
